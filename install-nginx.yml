@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: ensure nginx is at the latest version
+      yum: name=nginx state=latest
+    # - name: index.html copy
+    #   template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
